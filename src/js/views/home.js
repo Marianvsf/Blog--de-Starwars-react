@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../../styles/home.css";
-import Cards from "../component/cards";
-import {Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Cards from "../component/cards";
+import CardsPlanets from "../component/cards-planets";
 
 
 export const Home = () => {
@@ -10,14 +10,20 @@ export const Home = () => {
 
 	useEffect(() => {
 		actions.getCharacter();
+		actions.getPlanet();
 	}, []);
 	
 
 	return (
-	
+	<div>
 		<div className="container">
 			<h1>Characters</h1>
 			<Cards characters={store.characters}  />
 		</div>
-	)
+		<div className="container">
+			<h1>Planets</h1>
+			<CardsPlanets planets={store.planets}  />
+		</div>	
+	</div>
+)
 };
