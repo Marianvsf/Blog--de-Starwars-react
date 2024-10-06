@@ -1,0 +1,26 @@
+h1 {
+    color: red;
+}
+img {
+    max-height: 300px;
+}
+.container {
+    overflow-x: scroll;
+}
+.container::-webkit-scrollbar {
+    height: 8px;
+    background: #ecebeb;
+}
+.container::-webkit-scrollbar-thumb {
+    height: 10px; /* Alto del pulgar de la barra */
+    background: #d5d0d0;
+    border-radius: 10px;
+    border: gray;
+  }
+.card {
+    min-width: 300px;
+    margin: 15px;
+}
+.card-body{
+    margin: 5px;
+}

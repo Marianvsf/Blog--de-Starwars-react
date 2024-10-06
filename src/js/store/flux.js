@@ -1,42 +1,53 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [],
+			planets: [], 
+			cars: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+			
+			getCharacter: async () => {
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				const setError = (errorMessage) => setStore({ error: errorMessage });
+				try {
+					const responses = await Promise.all(
+						[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(uid =>
+							fetch(`https://www.swapi.tech/api/people/${uid}`)
+						)
+					);
+					const characters = await Promise.all(
+						responses.map(response => {
+							if (response.ok) {
+								return response.json().then(data => ({
+									...data.result.properties,
+									uid: data.result.uid
+								}));
+							}
+							return null; // Manejo de errores
+						})
+					);
+					setStore({ characters: characters.filter(character => character !== null) });
+				} catch (error) {
+					console.error('Error fetching data:', error);
+					setError('Error al conectar con la API.');
+				}
+			},
+		getPlanets: async (uid)=>{
+			let resp = await fetch(`https://www.swapi.tech/api/planets/${uid}`, {
+			  method: "GET",
+			  headers: {
+				"Content-Type":"aplication/json",
+			  }
+			});	
+			if (resp.status === 404) {
+				console.log("No se puede encontrar el planeta ")
+			}
+			if (resp.status === 200) {
+				let data = await resp.json();
+				console.log({ data: data.result });
+				setStore({planets: data.result });
+			}
 			}
 		}
 	};
