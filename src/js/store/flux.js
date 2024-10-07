@@ -20,8 +20,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						responses.map(response => {
 							if (response.ok) {
 								return response.json().then(data => ({
-									...data.result.properties,
-									uid: data.result.uid
+									...data.result.properties, uid: data.result.uid, 
+									description: data.result.description
 								}));
 							}
 							return null; // Manejo de errores
