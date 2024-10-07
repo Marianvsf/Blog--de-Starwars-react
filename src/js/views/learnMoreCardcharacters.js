@@ -1,14 +1,36 @@
-import React  from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 
-function CardsLearnMore({characters}) {
+function CardsLearnMore() {
+    const { uid } = useParams();
+    const { store, actions } = useContext(Context);
+    const [character, setCharacter] = useState(null);
+
+    useEffect(() => {
+        // Buscar el personaje usando el uid
+        const foundCharacter = store.characters.find(p => p.uid === uid);
+        if (foundCharacter) {
+            setCharacter(foundCharacter);
+        } else {
+            // Si no se encuentra, podrías hacer una llamada API aquí si es necesario
+            actions.getCharacter(); // Puedes llamar a la función para obtener los personajes
+        }
+    }, [uid, store.characters, actions]);
+
+    if (!character) {
+        return  <div className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+    }
+
     function imageError(e) {
         e.target.src="https://starwars-visualguide.com/assets/img/placeholder.jpg"    
     }
     return ( 
     <div>
-        {characters.map(character => (
-            <div key={character.uid} className="card mb-3" style={{maxWidth: "680px"}}>
+            <div className="cardDetails mb-3" style={{maxWidth: "680px"}}>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} onError={imageError} className="img-fluid rounded-start" alt="..." />
@@ -19,6 +41,7 @@ function CardsLearnMore({characters}) {
                         <p className="card-text">{character.description}</p>
                     </div>
                 </div>
+                <hr className="my-2" style={{color: "red"}} />
                 <ul className="list-group list-group-horizontal">
                    <ul> <h6>Name</h6>
                         <li>{character.name}</li>
@@ -42,23 +65,8 @@ function CardsLearnMore({characters}) {
                 </ul>
             </div>
         </div>
-            ))}
     </div>
     );
 }
 
 export default CardsLearnMore;
-
-/* "properties": {
-"height": "172",
-"mass": "77",
-"hair_color": "blond",
-"skin_color": "fair",
-"eye_color": "blue",
-"birth_year": "19BBY",
-"gender": "male",
-"created": "2024-10-06T18:57:58.527Z",
-"edited": "2024-10-06T18:57:58.527Z",
-"name": "Luke Skywalker",
-"homeworld": "https://www.swapi.tech/api/planets/1",
-"url": "https://www.swapi.tech/api/people/1"*/

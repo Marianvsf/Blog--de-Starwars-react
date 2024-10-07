@@ -12,7 +12,7 @@ function Cards({characters}) {
   console.log(characters.data)
   function imageError(e) {
     e.target.src="https://starwars-visualguide.com/assets/img/placeholder.jpg"
-  }
+  } 
     return (
       <div className="overflow-x-auto" >
 
@@ -26,7 +26,7 @@ function Cards({characters}) {
             <p className="card-text">Hair Color: {character.hair_color}</p>
             <p className="card-text">Eye Color: {character.eye_color}</p>
             <div className="d-flex justify-content-between">
-            <Link to={character.url} className="btn btn-primary">Lean more...</Link>
+            <Link to={`/learnMoreCardcharacters/${character.uid}`} className="btn btn-primary">Lean more...</Link>
             <Link to={character.url} className="btn btn-outline-warning justify-content-end"><FontAwesomeIcon icon={faHeart} /></Link>
             </div>
           </div>

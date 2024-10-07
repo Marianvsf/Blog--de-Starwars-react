@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
-import { CardsLearnMore } from "./views/learnMoreCardcharacters";
+import  CardsLearnMore  from "./views/learnMoreCardcharacters";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -27,6 +27,7 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/learnMoreCardcharacters/:uid" element={<CardsLearnMore/>} />
 						
 					</Routes>
 					<Footer />

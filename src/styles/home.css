@@ -27,4 +27,7 @@ img {
 ul {
     list-style: none;
     color: red;
-  }
+}
+.cardDetails {
+    margin: auto;
+}

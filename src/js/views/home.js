@@ -4,9 +4,6 @@ import { Context } from "../store/appContext";
 import Cards from "../component/cards-characters";
 import CardsPlanets from "../component/cards-planets";
 import CardsCars from "../component/cards-cars";
-import CardsLearnMore from "./learnMoreCardcharacters";
-import CardsLearnMorePlanet from "./learnMoreCardplanets";
-import CardsLearnMoreCar from "./learnMoreCardCars";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -31,9 +28,10 @@ export const Home = () => {
 			<h1>Vehicles</h1>
 			<CardsCars cars={store.cars}  />
 		</div>	
-		<CardsLearnMore characters={store.characters} />
-		<CardsLearnMorePlanet planets={store.planets} />
-		<CardsLearnMoreCar cars={store.cars} />
 	</div>
 )
 };
+/*
+<CardsLearnMore characters={store.characters} />
+<CardsLearnMorePlanet planets={store.planets} />
+<CardsLearnMoreCar cars={store.cars} />*/
