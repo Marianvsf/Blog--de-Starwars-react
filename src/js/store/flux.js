@@ -47,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							if (response.ok) {
 								return response.json().then(data => ({
 									...data.result.properties,
-									uid: data.result.uid
+									uid: data.result.uid, description: data.result.description
 								}));
 							}
 							return null; // Manejo de errores

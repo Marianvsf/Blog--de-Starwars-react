@@ -1,7 +1,7 @@
 import React  from "react";
 
 
-function CardsLearnMore({characters, }) {
+function CardsLearnMore({characters }) {
     function imageError(e) {
         e.target.src="https://starwars-visualguide.com/assets/img/placeholder.jpg"    
     }
@@ -21,7 +21,7 @@ function CardsLearnMore({characters, }) {
                 </div>
                 <ul className="list-group list-group-horizontal">
                    <ul> Name
-                        <li>{character.properties}</li>
+                        <li>{character.name}</li>
                    </ul>
                    <ul> Birth year
                         <li>{character.birth_year}</li>

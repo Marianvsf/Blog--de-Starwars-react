@@ -5,7 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
-import { CardsLearnMore } from "./views/learnMoreCard";
+import { CardsLearnMore } from "./views/learnMoreCardcharacters";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
