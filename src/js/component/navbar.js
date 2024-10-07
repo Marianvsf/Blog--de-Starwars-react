@@ -5,7 +5,7 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light mb-3 m-5 mt-0">
 			
-			 <Link className="navbar-brand" href="#">
+			 <Link to="/home" className="navbar-brand" href="#">
       		<img src="https://goodlogo.com/images/logos/star_wars_logo_3476.gif" alt="Bootstrap" width="100" height="50" />
    			 </Link>
 			<div className="ml-auto">
