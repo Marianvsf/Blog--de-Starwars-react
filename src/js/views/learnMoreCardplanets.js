@@ -8,7 +8,7 @@ function CardsLearnMorePlanet({planets }) {
     return ( 
     <div>
         {planets.map(planet => (
-            <div key={planet.uid} className="card mb-3" style={{maxWidth: "800px"}}>
+            <div key={planet.uid} className="card mb-3" style={{maxWidth: "750px"}}>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} onError={imageError} className="img-fluid rounded-start" alt="..." />
@@ -20,22 +20,22 @@ function CardsLearnMorePlanet({planets }) {
                     </div>
                 </div>
                 <ul className="list-group list-group-horizontal">
-                   <ul> Name
+                   <ul> <h6>Name</h6>
                         <li>{planet.name}</li>
                    </ul>
-                   <ul> Climate
+                   <ul> <h6>Climate</h6>
                         <li>{planet.climate}</li>
                    </ul>
-                   <ul> Population
+                   <ul> <h6>Population</h6>
                         <li>{planet.population}</li>
                    </ul>
-                   <ul> Orbital Period
+                   <ul> <h6>Orbital Period</h6>
                         <li>{planet.orbital_period}</li>
                    </ul>
-                   <ul> Rotation Period
+                   <ul> <h6>Rotation Period</h6>
                         <li>{planet.rotation_period}</li>
                    </ul>
-                   <ul> Diameter
+                   <ul> <h6>Diameter</h6>
                         <li>{planet.diameter}</li>
                    </ul>
                     

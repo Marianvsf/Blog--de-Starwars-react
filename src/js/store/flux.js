@@ -10,9 +10,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getCharacter: async () => {
 				const store = getStore();
 				const setError = (errorMessage) => setStore({ error: errorMessage });
+				const charactersIndices = Array.from({ length: 82 }, (_, i) => i + 1);
 				try {
 					const responses = await Promise.all(
-						[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(uid =>
+						charactersIndices.map(uid =>
 							fetch(`https://www.swapi.tech/api/people/${uid}`)
 						)
 					);
@@ -35,10 +36,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 		getPlanet: async ()=>{
 			const store = getStore();
+			const planetsIndices = Array.from({ length: 60 }, (_, i) => i + 1);
 				const setError = (errorMessage) => setStore({ error: errorMessage });
 				try {
 					const responses = await Promise.all(
-						[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(uid =>
+						planetsIndices.map(uid =>
 							fetch(`https://www.swapi.tech/api/planets/${uid}`)
 						)
 					);
@@ -61,10 +63,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getCars: async ()=>{
 				const store = getStore();
+				const carsIndices = Array.from({ length: 39 }, (_, i) => i + 1);
 				const setError = (errorMessage) => setStore({ error: errorMessage });
 				try {
 					const responses = await Promise.all(
-						[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(uid =>
+						carsIndices.map(uid =>
 							fetch(`https://www.swapi.tech/api/vehicles/${uid}`)
 						)
 					);

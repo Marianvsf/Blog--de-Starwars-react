@@ -1,14 +1,14 @@
 import React  from "react";
 
 
-function CardsLearnMore({characters }) {
+function CardsLearnMore({characters}) {
     function imageError(e) {
         e.target.src="https://starwars-visualguide.com/assets/img/placeholder.jpg"    
     }
     return ( 
     <div>
         {characters.map(character => (
-            <div key={character.uid} className="card mb-3" style={{maxWidth: "540px"}}>
+            <div key={character.uid} className="card mb-3" style={{maxWidth: "680px"}}>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} onError={imageError} className="img-fluid rounded-start" alt="..." />
@@ -20,22 +20,22 @@ function CardsLearnMore({characters }) {
                     </div>
                 </div>
                 <ul className="list-group list-group-horizontal">
-                   <ul> Name
+                   <ul> <h6>Name</h6>
                         <li>{character.name}</li>
                    </ul>
-                   <ul> Birth year
+                   <ul> <h6>Birth year</h6>
                         <li>{character.birth_year}</li>
                    </ul>
-                   <ul> Gender
+                   <ul> <h6>Gender</h6>
                         <li>{character.gender}</li>
                    </ul>
-                   <ul> Height
+                   <ul> <h6>Height</h6>
                         <li>{character.height}</li>
                    </ul>
-                   <ul> Skin color
+                   <ul> <h6>Skin color</h6>
                         <li>{character.skin_color}</li>
                    </ul>
-                   <ul> Eye color
+                   <ul> <h6>Eye color</h6>
                         <li>{character.eye_color}</li>
                    </ul>
                     
