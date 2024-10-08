@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import  CardsLearnMore  from "./views/learnMoreCardcharacters";
+import  CardsLearnMorePlanet from "./views/learnMoreCardplanets";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -29,6 +30,7 @@ const Layout = () => {
 						<Route path="*" element={<h1>Not found!</h1>} />
 						<Route path="/learnMoreCardcharacters/:uid" element={<CardsLearnMore/>} />
 						<Route path="/home" element={<Home />} />
+						<Route path="/learnMoreCardplanets/:uid" element={<CardsLearnMorePlanet/>} />
 						
 					</Routes>
 					<Footer />

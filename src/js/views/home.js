@@ -15,7 +15,7 @@ export const Home = () => {
 	}, []);
 	
 	return (
-	<div>
+	<div className="mb-5">
 		<div className="container">
 			<h1>Characters</h1>
 			<Cards characters={store.characters}  />
@@ -31,7 +31,3 @@ export const Home = () => {
 	</div>
 )
 };
-/*
-<CardsLearnMore characters={store.characters} />
-<CardsLearnMorePlanet planets={store.planets} />
-<CardsLearnMoreCar cars={store.cars} />*/

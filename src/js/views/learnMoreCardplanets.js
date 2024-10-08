@@ -1,14 +1,36 @@
-import React  from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 
-function CardsLearnMorePlanet({planets }) {
+function CardsLearnMorePlanet() {
+    const { uid } = useParams();
+    const { store, actions } = useContext(Context);
+    const [planet, setPlanet] = useState(null);
+
+    useEffect(() => {
+        // Buscar el personaje usando el uid
+        const foundPlanet = store.planets.find(planet => planet.uid === uid);
+        if (foundPlanet) {
+            setPlanet(foundPlanet);
+        } else {
+            // Si no se encuentra, podrías hacer una llamada API aquí si es necesario
+            actions.getPlanet(); // Puedes llamar a la función para obtener los personajes
+        }
+    }, [uid, store.planets, actions]);
+
+    if (!planet) {
+        return  <div className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+    }
+
     function imageError(e) {
         e.target.src="https://starwars-visualguide.com/assets/img/placeholder.jpg"    
     }
     return ( 
     <div>
-        {planets.map(planet => (
-            <div key={planet.uid} className="card mb-3" style={{maxWidth: "750px"}}>
+            <div className="cardDetails mb-3" style={{maxWidth: "750px"}}>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} onError={imageError} className="img-fluid rounded-start" alt="..." />
@@ -19,6 +41,7 @@ function CardsLearnMorePlanet({planets }) {
                         <p className="card-text">{planet.description}</p>
                     </div>
                 </div>
+                <hr className="my-2" style={{color: "red"}} />
                 <ul className="list-group list-group-horizontal">
                    <ul> <h6>Name</h6>
                         <li>{planet.name}</li>
@@ -42,7 +65,6 @@ function CardsLearnMorePlanet({planets }) {
                 </ul>
             </div>
         </div>
-            ))}
     </div>
     );
 }

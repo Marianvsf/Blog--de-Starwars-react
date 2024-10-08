@@ -10,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getCharacter: async () => {
 				const store = getStore();
 				const setError = (errorMessage) => setStore({ error: errorMessage });
-				const charactersIndices = Array.from({ length: 82 }, (_, i) => i + 1);
+				const charactersIndices = Array.from({ length: 10 }, (_, i) => i + 1);
 				try {
 					const responses = await Promise.all(
 						charactersIndices.map(uid =>
@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 		getPlanet: async ()=>{
 			const store = getStore();
-			const planetsIndices = Array.from({ length: 60 }, (_, i) => i + 1);
+			const planetsIndices = Array.from({ length: 10 }, (_, i) => i + 1);
 				const setError = (errorMessage) => setStore({ error: errorMessage });
 				try {
 					const responses = await Promise.all(
@@ -63,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getCars: async ()=>{
 				const store = getStore();
-				const carsIndices = Array.from({ length: 39 }, (_, i) => i + 1);
+				const carsIndices = Array.from({ length: 30 }, (_, i) => i + 1);
 				const setError = (errorMessage) => setStore({ error: errorMessage });
 				try {
 					const responses = await Promise.all(

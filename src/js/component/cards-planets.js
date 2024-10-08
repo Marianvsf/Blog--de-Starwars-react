@@ -20,12 +20,14 @@ function CardsPlanets({planets}) {
         {planets.map(planet => (
           <div key={planet.uid} className="card" style={{width: "18rem"}}>
           <div className="card-body">
+            <div className="image-container" >
             <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} onError={imageError} className="card-img-top" alt="..." />
+            </div>
             <h5 className="card-title">{planet.name}</h5>
             <p className="card-text">Population: {planet.population}</p>
             <p className="card-text">Terrain: {planet.terrain}</p>
             <div className="d-flex justify-content-between">
-            <Link to={planet.url} className="btn btn-primary">Learn more...</Link>
+            <Link to={`/learnMoreCardplanets/${planet.uid}`} className="btn btn-primary">Learn more...</Link>
             <Link to={planet.url} className="btn btn-outline-warning justify-content-end"><FontAwesomeIcon icon={faHeart} /></Link>
             </div>
           </div>
