@@ -7,6 +7,7 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import  CardsLearnMore  from "./views/learnMoreCardcharacters";
 import  CardsLearnMorePlanet from "./views/learnMoreCardplanets";
+import  CardsLearnMoreCar from "./views/learnMoreCardCars";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -31,7 +32,8 @@ const Layout = () => {
 						<Route path="/learnMoreCardcharacters/:uid" element={<CardsLearnMore/>} />
 						<Route path="/home" element={<Home />} />
 						<Route path="/learnMoreCardplanets/:uid" element={<CardsLearnMorePlanet/>} />
-						
+						<Route path="/learnMoreCardCars/:uid" element={<CardsLearnMoreCar/>} />
+
 					</Routes>
 					<Footer />
 				</ScrollToTop>

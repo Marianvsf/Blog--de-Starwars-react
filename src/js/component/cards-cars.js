@@ -25,7 +25,7 @@ function CardsCars({cars}) {
             <p className="card-text">Model: {car.model}</p>
             <p className="card-text">Cost in credits: {car.cost_in_credits}</p>
             <div className="d-flex justify-content-between">
-            <Link to={car.url} className="btn btn-primary">Learn more...</Link>
+            <Link to={`/learnMoreCardCars/${car.uid}`} className="btn btn-primary">Learn more...</Link>
             <Link to={car.url} className="btn btn-outline-warning justify-content-end"><FontAwesomeIcon icon={faHeart} /></Link>
             </div>
           </div>

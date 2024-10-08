@@ -15,7 +15,7 @@ export const Home = () => {
 	}, []);
 	
 	return (
-	<div className="mb-5">
+	<div className="big-container">
 		<div className="container">
 			<h1>Characters</h1>
 			<Cards characters={store.characters}  />
