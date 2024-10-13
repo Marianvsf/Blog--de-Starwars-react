@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			planets: [], 
 			cars: [],
+			favorites: []
 		},
 		actions: {
 			
@@ -88,6 +89,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setError('Error al conectar con la API.');
 				}
 			},
+			addFavorite: (favorite)=> {
+				const store= getStore()
+				setStore({"favorites" : [...store.favorites, favorite ]})
+			},
+			removeFavorite: (item)=> {
+				const store= getStore()
+				setStore({"favorites": store.favorites.filter((favorite)=> !(favorite.uid == item.uid && favorite.type == item.type) )})
+			}
 		}
 	};
 };

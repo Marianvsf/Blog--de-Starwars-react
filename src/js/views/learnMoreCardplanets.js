@@ -33,7 +33,7 @@ function CardsLearnMorePlanet() {
             <div className="cardDetails mb-3" style={{maxWidth: "750px"}}>
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} onError={imageError} className="img-fluid rounded-start" alt="..." />
+                        <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} onError={imageError} alt="..." />
                     </div>
                     <div className="col-md-8">
                     <div className="card-body">
